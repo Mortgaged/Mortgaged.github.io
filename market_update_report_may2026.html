@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Update — May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #03142c;
+    --cream: #ffffff;
+    --warm: #e6edf4;
+    --gold: #619b8a;
+    --gold-light: #82b5a4;
+    --muted: #4a607a;
+    --danger: #c0392b;
+    --safe: #619b8a;
+    --mid: #619b8a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* Header */
+  .masthead {
+    border-top: 4px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 24px 0 20px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .masthead-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .masthead-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .masthead-date {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Hero headline */
+  .hero {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--warm);
+  }
+
+  .issue-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    line-height: 1.08;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 520px;
+  }
+
+  /* Section headers */
+  .section {
+    margin-bottom: 44px;
+  }
+
+  .section-label {
+    font-size: 9.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 14.5px;
+    color: #2a2825;
+    margin-bottom: 14px;
+  }
+
+  /* Stat cards grid */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #619b8a;
+    border: 1px solid #619b8a;
+    margin: 24px 0;
+  }
+
+  .stat-card {
+    background: var(--cream);
+    padding: 20px 22px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-note {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .up { color: var(--safe); }
+  .down { color: var(--danger); }
+  .flat { color: var(--mid); }
+
+  /* Local area table */
+  .area-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13.5px;
+  }
+
+  .area-table th {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--ink);
+    font-weight: 500;
+  }
+
+  .area-table td {
+    padding: 12px 12px;
+    border-bottom: 1px solid var(--warm);
+    vertical-align: top;
+  }
+
+  .area-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .area-name {
+    font-weight: 500;
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .pill-green { background: #d0e8e2; color: #1e6b57; }
+  .pill-amber { background: #dce8f0; color: #03142c; }
+  .pill-red { background: #f8d7da; color: var(--danger); }
+
+  /* Rates comparison */
+  .rate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .rate-card {
+    border: 1px solid var(--warm);
+    padding: 18px 20px;
+  }
+
+  .rate-type {
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .rate-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .rate-detail {
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+
+  /* Sentiment bar */
+  .sentiment-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+
+  .sentiment-label {
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 6px;
+    background: var(--warm);
+    border-radius: 0;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 0;
+  }
+
+  .bar-pct {
+    width: 36px;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* Outlook box */
+  .outlook-box {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 28px 32px;
+    margin: 24px 0;
+  }
+
+  .outlook-box .section-label {
+    color: var(--gold-light);
+  }
+
+  .outlook-box h2 {
+    color: var(--cream);
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .outlook-box p {
+    color: #c8c4bc;
+    font-size: 14px;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--warm);
+    margin: 40px 0;
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding: 4px 20px;
+    margin: 24px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.5;
+    color: #3a3530;
+  }
+
+  /* Bristol badge */
+  .local-badge {
+    display: inline-block;
+    background: #619b8a;
+    color: #fff;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .footer-note {
+    font-size: 10px;
+    color: var(--muted);
+    max-width: 400px;
+    text-align: right;
+  }
+
+  @media print {
+    body { padding: 24px 28px; }
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-left">
+    <svg width="80" height="37" viewBox="0 0 931 436" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M134.548 429.119H11.3091L147.52 172.722L69.6852 318.853V111.294H147.52V172.722L231.841 14L452.373 429.119H329.135L231.841 241.018L134.548 429.119Z" fill="#03142c"/>
+<path d="M685.878 429.119H562.639L406.97 123.885L465.346 14L685.878 429.119Z" fill="#03142c"/>
+<path d="M919.383 429.119H796.144L640.474 123.885L698.851 14L919.383 429.119Z" fill="#03142c"/>
+<path d="M147.52 172.722L231.841 14L452.373 429.119H329.135L231.841 241.018L134.548 429.119H11.3091L147.52 172.722ZM147.52 172.722V111.294H69.6852V318.853L147.52 172.722ZM562.639 429.119H685.878L465.346 14L406.97 123.885L562.639 429.119ZM796.144 429.119H919.383L698.851 14L640.474 123.885L796.144 429.119Z" stroke="#03142c" stroke-width="12.9725"/>
+</svg>
+  </div>
+  <div class="masthead-date">19 May 2026 &nbsp;·&nbsp; Fortnightly Edition</div>
+</div>
+
+<div class="hero">
+  <div class="issue-label">■ Bi-Weekly Client Briefing</div>
+  <h1>Rates Held. Markets<br>Watching &amp; Waiting.</h1>
+  <p class="hero-sub">A fortnightly snapshot of UK interest rates, mortgage market sentiment, and local property prices across Bristol, Portishead, Nailsea and the wider South West.</p>
+</div>
+
+
+<!-- SECTION 1: RATES -->
+<div class="section">
+  <div class="section-label">01 — Interest Rates</div>
+  <h2>Bank of England Holds at 3.75%, But Warning Signs Grow</h2>
+
+  <p>The Bank of England's Monetary Policy Committee voted 8–1 on 30 April to hold the base rate at 3.75% for the third consecutive meeting. One member voted to increase to 4%, and the Bank's own language pointed to the possibility of "forceful" rate rises later in 2026 if inflation continues to rise above its 2% target. CPI inflation currently stands at 3.3%.</p>
+
+  <p>For buyers and sellers, the important distinction is between the base rate and the rates lenders are actually offering. Fixed mortgage rates are driven primarily by swap rates, which have been pushed higher by global energy market pressures linked to the Middle East conflict, meaning most borrowers are seeing rates closer to 5% than 3.75%.</p>
+
+  <div class="rate-grid">
+    <div class="rate-card">
+      <div class="rate-type">BoE Base Rate</div>
+      <div class="rate-number">3.75%</div>
+      <div class="rate-detail">Held 30 April 2026. Next decision: 18 June 2026.</div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-type">Best 2-Year Fixed (60% LTV)</div>
+      <div class="rate-number">4.40%</div>
+      <div class="rate-detail">With £999 fee. Average 2yr fixed: ~5.78%</div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-type">Best 5-Year Fixed</div>
+      <div class="rate-number">4.48%</div>
+      <div class="rate-detail">With £490 fee.</div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-type">Average 2yr Fixed (60% LTV)</div>
+      <div class="rate-number">4.62%</div>
+      <div class="rate-detail">Source: Rightmove, May 2026. Market average is higher.</div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-type">Standard Variable Rate (SVR)</div>
+      <div class="rate-number">~7–8%</div>
+      <div class="rate-detail">Significantly above fixed rate deals — switch now if on SVR.</div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-type">First-Time Buyer Range</div>
+      <div class="rate-number">3.75–5.60%</div>
+      <div class="rate-detail">244 products across 9 lenders. Fees from £0.</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:28px;">GBP Swap Rates — 13 May 2026 (Bloomberg)</div>
+  <div class="rate-grid">
+    <div class="rate-card">
+      <div class="rate-type">1-Year Swap Rate</div>
+      <div class="rate-number">4.25%</div>
+      <div class="rate-detail">1 year ago: 3.96% &nbsp;↑ Higher</div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-type">2-Year Swap Rate</div>
+      <div class="rate-number">4.36%</div>
+      <div class="rate-detail">1 year ago: 3.80% &nbsp;↑ Higher</div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-type">3-Year Swap Rate</div>
+      <div class="rate-number">4.35%</div>
+      <div class="rate-detail">1 year ago: 3.77% &nbsp;↑ Higher</div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-type">5-Year Swap Rate</div>
+      <div class="rate-number">4.36%</div>
+      <div class="rate-detail">1 year ago: 3.82% &nbsp;↑ Higher</div>
+    </div>
+    <div class="rate-card">
+      <div class="rate-type">10-Year Swap Rate</div>
+      <div class="rate-number">4.61%</div>
+      <div class="rate-detail">1 year ago: 4.13% &nbsp;↑ Higher</div>
+    </div>
+    <div class="rate-card" style="background:#f0f6f4;">
+      <div class="rate-type">What This Means</div>
+      <div class="rate-number" style="font-size:14px; line-height:1.4; font-family:'DM Sans',sans-serif; font-weight:500; color:#03142c;">Swap rates are significantly higher than a year ago — this is why fixed mortgage rates remain elevated despite the base rate holding at 3.75%.</div>
+      <div class="rate-detail" style="margin-top:6px;">Lenders price fixed deals off swaps, not the base rate.</div>
+    </div>
+  </div>
+
+  <div class="pull-quote">"For mortgage borrowers, a hold does not automatically mean mortgage rates are about to fall. Swap rates are in the driving seat — and they've edged higher."</div>
+</div>
+
+<hr class="divider">
+
+
+<!-- SECTION 2: WHAT THE MARKET IS SAYING -->
+<div class="section">
+  <div class="section-label">02 — Market Sentiment</div>
+  <h2>What People Are Talking About</h2>
+
+  <p>Market conversation this fortnight is dominated by three overlapping themes: swap rate volatility driven by the Middle East conflict, the prospects for a rate cut vs. rate rise at June's MPC meeting, and how elevated mortgage pricing is filtering into buyer confidence locally.</p>
+
+  <p>Major lenders including Nationwide, HSBC, Halifax and Santander have been cutting fixed rates in recent weeks, but experts are cautioning this may reverse if swap rates continue to climb. Buyers are being advised to lock in an affordable deal now and review before completion, rather than wait for a cleaner signal that may not arrive.</p>
+
+  <p>With around 1.8 million fixed-rate mortgages due to mature in 2026, there is a significant volume of remortgage decisions in play nationally, creating both urgency and opportunity for well-positioned buyers and sellers.</p>
+
+  <div class="section-label" style="margin-top:20px;">Public Expectation on Rates (2026)</div>
+  <div class="sentiment-row">
+    <span class="sentiment-label">Expect rates to rise</span>
+    <div class="bar-track"><div class="bar-fill" style="width:23%"></div></div>
+    <span class="bar-pct">23%</span>
+  </div>
+  <div class="sentiment-row">
+    <span class="sentiment-label">Expect rates to stay</span>
+    <div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>
+    <span class="bar-pct">28%</span>
+  </div>
+  <div class="sentiment-row">
+    <span class="sentiment-label">Expect rates to fall</span>
+    <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+    <span class="bar-pct">25%</span>
+  </div>
+  <div class="sentiment-row">
+    <span class="sentiment-label">Unsure</span>
+    <div class="bar-track"><div class="bar-fill" style="width:24%"></div></div>
+    <span class="bar-pct">24%</span>
+  </div>
+  <p style="margin-top:10px; font-size:12px; color:var(--muted);">Source: HomeOwners Alliance research, 2026.</p>
+</div>
+
+<hr class="divider">
+
+
+<!-- SECTION 3: OUTLOOK -->
+<div class="outlook-box">
+  <div class="section-label">03 — Two-Month Outlook</div>
+  <h2>Where Is the Market Heading?</h2>
+  <p>The next MPC decision on 18 June is the pivotal moment. Most economists expect the base rate to hold again, but the Bank's own modelling now includes scenarios where the base rate rises to 5.25% by early 2027 if the energy price shock persists. Goldman Sachs sees a "low hurdle" for two hikes during the summer should energy pressures continue.</p>
+  <p>For fixed rate mortgage pricing, the near-term outlook depends almost entirely on swap rate movement rather than the base rate itself. If the Middle East situation stabilises, cuts in fixed rates could resume. If it escalates, the recent improvements could be erased. Forecasters currently project 5-year fixes in the 4.73% range by end of May, edging toward 4.67% into June.</p>
+  <p>The practical advice from brokers is consistent: well-qualified buyers should proceed rather than wait. Sellers who price correctly, particularly in family home segments, are still achieving strong results. The key risk for sellers is overpricing in a market where buyers have more choice than at any point in the last eight years.</p>
+</div>
+
+<hr class="divider">
+
+
+<!-- SECTION 4: LOCAL PRICES -->
+<div class="section">
+  <div class="section-label">04 — Local Property Prices</div>
+  <div class="local-badge">■ Bristol · Portishead · Nailsea · South West</div>
+
+  <h2>Average Prices by Area</h2>
+
+  <table class="area-table">
+    <thead>
+      <tr>
+        <th>Area</th>
+        <th>Avg. Price</th>
+        <th>Annual Change</th>
+        <th>Key Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="area-name">Bristol (City)</span></td>
+        <td>£347,000–£403,000</td>
+        <td><span class="pill pill-amber">−2.5% (ONS Feb '26)</span></td>
+        <td>Two-speed market: terraced houses resilient, flats down ~4.6% year-on-year.</td>
+      </tr>
+      <tr>
+        <td><span class="area-name">Bristol Terraced (avg.)</span></td>
+        <td>£402,347</td>
+        <td><span class="pill pill-green">+2% YoY</span></td>
+        <td>Most common sale type. South Bristol hotspots: Totterdown (+15%), Southville (+11%), Bedminster (+7%).</td>
+      </tr>
+      <tr>
+        <td><span class="area-name">Bristol Flats (avg.)</span></td>
+        <td>£281,544</td>
+        <td><span class="pill pill-red">−4.6% YoY</span></td>
+        <td>Flat market underperforming significantly. Softness driven by EWS1 cladding concerns and affordability ceiling.</td>
+      </tr>
+      <tr>
+        <td><span class="area-name">Portishead</span></td>
+        <td>£408,664–£409,000</td>
+        <td><span class="pill pill-amber">−0.9% YoY</span></td>
+        <td>Detached avg. £536,958. Terraced avg. £393,201. Flats avg. £241,626. Broadly stable market.</td>
+      </tr>
+      <tr>
+        <td><span class="area-name">Nailsea</span></td>
+        <td>£407,324</td>
+        <td><span class="pill pill-amber">Broadly flat</span></td>
+        <td>Family home demand holding. Family houses continue to outperform flats locally.</td>
+      </tr>
+      <tr>
+        <td><span class="area-name">North Somerset (overall)</span></td>
+        <td>£310,000–£360,000</td>
+        <td><span class="pill pill-amber">−0.8% YoY</span></td>
+        <td>Semi-detached stable, flats down 3.6%. First-time buyer avg. £243,000.</td>
+      </tr>
+      <tr>
+        <td><span class="area-name">South West (regional)</span></td>
+        <td>£300,000</td>
+        <td><span class="pill pill-amber">Flat YoY</span></td>
+        <td>Region performing in line with national average. South West sitting below Bristol premium.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="divider">
+
+
+<!-- SECTION 5: ACHIEVING ASKING PRICE -->
+<div class="section">
+  <div class="section-label">05 — Sale Price Achievement</div>
+  <h2>Are Properties Achieving Asking Price?</h2>
+
+  <p>Nationally, the average home now sells for approximately 4% below its original asking price, a gap that is slightly larger than this time last year. In the South West specifically, the average discount from asking price sits at around 2.86%, above the national average.</p>
+
+  <p>However, Bristol is the standout exception within the South West. Zoopla data highlights Bristol (BS) as the region's top performer, with an average sale time of just 22 days and minimal asking price reductions required. Well-priced family houses in South Bristol are seeing competitive demand, with some sellers achieving or exceeding asking price.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-label">Bristol avg. sale time</div>
+      <div class="stat-value up">22 days</div>
+      <div class="stat-note">Fastest in the South West region</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">South West discount to asking</div>
+      <div class="stat-value flat">−2.86%</div>
+      <div class="stat-note">Avg. reduction from original ask</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Bristol properties selling in Bristol</div>
+      <div class="stat-value up">~96–98%</div>
+      <div class="stat-note">Of asking price for well-priced homes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Bristol – Flats</div>
+      <div class="stat-value down">More negotiation</div>
+      <div class="stat-note">Sellers accepting larger discounts vs. houses</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Portishead / Nailsea</div>
+      <div class="stat-value flat">Realistic pricing key</div>
+      <div class="stat-note">Family homes performing; accurate valuation critical</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Coastal / rural S.West</div>
+      <div class="stat-value down">Up to −12%</div>
+      <div class="stat-note">Plymouth/Bournemouth seeing larger cuts; avg 48+ days to sell</div>
+    </div>
+  </div>
+
+  <div class="pull-quote">"Bristol is the South West's standout performer — homes selling in 22 days on average, with sellers who price correctly facing minimal pressure to reduce."</div>
+
+  <p>For estate agents advising vendors, the consistent message from the data is that realistic, evidence-based pricing at launch drives significantly better outcomes than aspirational pricing followed by reductions. Buyers in 2026 have more choice than at any point in eight years and are taking longer to commit where value is unclear.</p>
+</div>
+
+<hr class="divider">
+
+
+<!-- SECTION 6: ADVICE POINTS -->
+<div class="section">
+  <div class="section-label">06 — Key Talking Points for Your Clients</div>
+  <h2>Practical Guidance This Fortnight</h2>
+
+  <p><strong>For buyers:</strong> Don't wait for the "perfect" rate. Lock in a competitive deal now, as most lenders will allow a rate review before completion if pricing improves. The SVR you fall onto at the end of a fixed deal (~7–8%) is significantly more expensive than any current fixed option.</p>
+
+  <p><strong>For sellers in Bristol/Portishead/Nailsea:</strong> Houses, particularly terraced and semi-detached family homes, remain in demand. Accurate pricing at launch avoids the stigma of a visible price reduction. Flats require careful positioning given the wider market headwinds.</p>
+
+  <p><strong>For remortgagors:</strong> Start the process up to 6 months before your deal ends. Around 1.8 million UK fixed-rate mortgages expire in 2026. Those who secure a rate offer early have options; those who drift onto SVR do not.</p>
+
+  <p><strong>Watch:</strong> The June MPC meeting (18 June), May inflation data (due before June decision), and any shift in Middle East energy prices. These three factors will largely determine the direction of fixed rates into summer.</p>
+</div>
+
+<footer>
+  <div class="footer-brand" style="display:flex;align-items:center;gap:8px;"><svg width="80" height="37" viewBox="0 0 931 436" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M134.548 429.119H11.3091L147.52 172.722L69.6852 318.853V111.294H147.52V172.722L231.841 14L452.373 429.119H329.135L231.841 241.018L134.548 429.119Z" fill="#03142c"/>
+<path d="M685.878 429.119H562.639L406.97 123.885L465.346 14L685.878 429.119Z" fill="#03142c"/>
+<path d="M919.383 429.119H796.144L640.474 123.885L698.851 14L919.383 429.119Z" fill="#03142c"/>
+<path d="M147.52 172.722L231.841 14L452.373 429.119H329.135L231.841 241.018L134.548 429.119H11.3091L147.52 172.722ZM147.52 172.722V111.294H69.6852V318.853L147.52 172.722ZM562.639 429.119H685.878L465.346 14L406.97 123.885L562.639 429.119ZM796.144 429.119H919.383L698.851 14L640.474 123.885L796.144 429.119Z" stroke="#03142c" stroke-width="12.9725"/>
+</svg></div>
+  <div class="footer-note">Sources: Bank of England, ONS UK HPI, Rightmove, Zoopla, Moneyfacts, HomeOwners Alliance, L&amp;C Mortgages, Ocean Estate Agents. Data correct to 19 May 2026. This report is for professional estate agent use only and does not constitute independent financial advice.</div>
+</footer>
+
+</body>
+</html>
